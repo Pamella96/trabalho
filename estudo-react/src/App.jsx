@@ -1,53 +1,28 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Navbar from './components/navbar'
+import React from 'react';
+import Navbar from './components/navbar';
+import Home from './components/Home';
+// import Contact from './components/Contact';
+// import About from './components/About';
+import { PrimeReactProvider} from 'primereact/api';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Login from './components/Login';
+import './App.css';
 
-function App() {
 
-  
-
+export default function App() {
   return (
-
-    
     <>
-    <Navbar/>
-    <div>
-      
-      
-        <p>
-          Formulario
-        </p>
-        <form>
-          <label>
-            Nome:
-            <input type="text" name="name" />
-          </label>
-          <label>
-            data de nascimento:
-            <input type="date" name="date" />
-          </label>
-          <label>
-            email:
-            <input type="email" name="email" />
-          </label>
-
-          <label>
-            matricula:
-            <input type="number" name="number" />
-          </label>
-
-
-          <button type= "submit"> count is:</button>
-        </form>
-          
-    </div>
+    <PrimeReactProvider>
+      <Navbar/>
+      <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      </BrowserRouter>
+      </PrimeReactProvider>
     </>
-  )
-  
+  );
 }
-
-
-
-export default App
